@@ -1,4 +1,4 @@
-## Version Control, HTML and CSS Introduction
+## HTML and CSS Introduction
 
 > This is my document for my tutorials
 
