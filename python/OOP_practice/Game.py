@@ -86,12 +86,12 @@ class Battle:
 
 def main():
 
-    maximus = Warrior("Maximus", 50, 20, 10)
+    david = Warrior("David", 50, 20, 10)
 
-    galaxon = Warrior("Galaxon", 50, 20, 10)
+    goliath = Warrior("Goliath", 50, 20, 10)
 
     battle = Battle()
 
-    battle.startFight(maximus, galaxon)
+    battle.startFight(david, goliath)
 
 main()
