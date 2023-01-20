@@ -21,13 +21,17 @@ echo "-----nvim is set to use, just how you use vim------"
 # -----configuring nvim as an IDE------
 sudo mkdir -p ~/.config/nvim
 cd ~/.config/nvim/ || { echo "can't access ~/.config/nvim/"; exit 1; }
-sudo touch init.lua
+sudo touch ~/.config/nvim/init.lua
 
 # go to:
 # https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
 # and copy the exact contents into your own init.lua created above
 # save and restart nvim, and voila!
 
-echo "go to https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua and copy the exact contents into your own init.lua created already"
+echo "go to https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua"
+echo
+echo "copy the exact contents into your ~/.config/nvim/init.lua"
+echo
 echo "save your updated init.lua and start nvim, wait for all installations"
+echo
 echo "and voila! you're all set"
