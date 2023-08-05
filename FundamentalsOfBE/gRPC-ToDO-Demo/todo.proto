@@ -1,0 +1,30 @@
+// A kind of schema file for the data that will be sent over the wire
+// This is a proto file, which is a file that defines the structure of the data that will be sent over the wire
+// A small ToDo app that will be used to demonstrate the use of gRPC
+
+// version of the proto file
+syntax = "proto3";
+
+// used to group the messages and services together
+package todoPackage;
+
+// A collection of functions that can be called remotely
+service Todo {
+    rpc createTodo(TodoItem) returns (TodoItem) {}
+    rpc readTodos(Empty) returns (TodoItems) {}
+    rpc readTodosStream(Empty) returns (stream TodoItem) {}
+}
+
+// how to spec function does not take any arguments
+message Empty {}
+
+// A message is a data structure that can be sent over the wire
+message TodoItem {
+    int32 id = 1;
+    string text = 2;
+}
+
+message TodoItems {
+    // represents a list of TodoItem objects [an Array]
+    repeated TodoItem items = 1;
+}
