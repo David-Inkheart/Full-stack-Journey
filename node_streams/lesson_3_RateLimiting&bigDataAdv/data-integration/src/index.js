@@ -9,7 +9,10 @@ import { pipeline } from 'node:stream/promises';
 import csvtojson from 'csvtojson';
 import { Transform } from 'node:stream';
 import { randomUUID } from 'node:crypto';
+
 import { log, makeRequest } from './util.js';
+import ThrottleRequest from './throttle.js';
+const throttle = new ThrottleRequest({ objectMode: true, requestsPerSecond: 10 });
 
 const dataProcessor = Transform({
   objectMode: true,
@@ -28,6 +31,7 @@ await pipeline(
   createReadStream('bigData.csv'),
   csvtojson(),
   dataProcessor,
+  throttle,
   async function* (source) {
     let counter = 0;
     for await (const chunk of source) {
