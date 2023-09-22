@@ -19,7 +19,7 @@ client.createTodo({
 });
 
 // client.readTodos({}, (err, response) => {
-//   // console.log('Recieved from server: ', response);
+  // console.log('Recieved from server: ', response);
 //   if (response.items) {
 //     response.items.forEach(item => console.log(item));
 //   }

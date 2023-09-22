@@ -19,13 +19,17 @@ server.addService(todoPackage.Todo.service, {
   "readTodosStream": readStream, // To show that the name of the method doesn't matter
 });
 
+// start the server
 server.start();
+
+console.log("Server has started...");
 
 // create an array to store the todos (ideally this would be a database)
 const todos = [];
 // methods in gRPC are called with a call object and a callback function (always)
 function createTodo(call, callback) {
   // call.request is the request object
+  // console.log("Recieved from client: ", call.request);
   const todoItem = {
     "id": todos.length + 1,
     "text": call.request.text,
@@ -37,10 +41,11 @@ function createTodo(call, callback) {
 // call object is used to read the request and all the metadata
 // callback is used to send the response
 function readTodos(call, callback) {
-  callback(null, {"items": todos});
+  callback(null, { "items": todos });
 }
 // a better way to send a bunch of data is to use a stream as against sending it all at once
 function readStream(call, callback) {
+  // console.log("Recieved from client: ", call.request);
   todos.forEach(item => call.write(item));
   call.end();
 }
