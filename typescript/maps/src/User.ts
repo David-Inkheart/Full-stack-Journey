@@ -1,11 +1,14 @@
 import { faker } from '@faker-js/faker';
+import { Mappable } from './CustomMap';
 
-export class User {
+// implements Mappable is optional, it helps us to catch errors in the actual code where we are using the interface
+export class User implements Mappable {
   name: string;
   location: {
     lat: number;
     lng: number;
   };
+  color: string = 'red';
 
   constructor() {
     this.name = faker.person.firstName();
@@ -13,5 +16,9 @@ export class User {
       lat: faker.location.latitude(),
       lng: faker.location.longitude(),
     };
+  }
+
+  makerContent(): string {
+    return `User Name: ${this.name}`;
   }
 }
