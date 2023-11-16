@@ -1,4 +1,0 @@
-This is my test file
-This is another line
-Here is a third line
-Then a weird 4th
