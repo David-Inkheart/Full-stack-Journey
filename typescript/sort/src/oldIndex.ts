@@ -27,6 +27,6 @@ class Sortee {
   }
 }
 
-const sortee = new Sorter([10, 3, -5, 0]);
-sorter.sort();
-console.log(sorter.collection);
+const sortee = new Sortee([10, 3, -5, 0]);
+sortee.sort();
+console.log(sortee.collection);
